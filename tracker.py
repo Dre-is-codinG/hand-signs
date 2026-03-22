@@ -1,6 +1,7 @@
 import cv2
 import mediapipe as mp
 import time
+import pyautogui as pag
 
 last_trigger_time = 0
 cooldown_period = 5
@@ -77,6 +78,7 @@ while True:
             else:
                 status = "Thumbs Down"
                 cv2.putText(frame, 'Thumbs Down!', (10, 70), cv2.FONT_HERSHEY_PLAIN, 1, (0, 0, 255), 2)
+                pag.press('q')
 
             if index_tip.y < index_mcp.y and middle_tip.y < middle_mcp.y and ring_tip.y < ring_mcp.y and pinky_tip.y < pinky_mcp.y:
                 status = "open hand"
@@ -86,6 +88,20 @@ while True:
                 status = "peace sign"
             elif pinky_pip.y < ring_dip.y and pinky_pip.y < middle_dip.y and thumb_tip.y < index_tip.y:
                 status = "right on!"
+# ----------- Opens Youtube from chrome after gesture is detected -----------
+                pag.press('win')
+                time.sleep(1)
+                pag.write('chrome')
+                time.sleep(1)
+                pag.press('enter')
+                time.sleep(2)
+                pag.moveTo(822,660)
+                pag.sleep(0.3)
+                pag.click()
+                pag.moveTo((543,739))
+                pag.sleep(1)
+                pag.click()
+
             
             
     cv2.putText(frame, status, (10, 30), cv2.FONT_HERSHEY_PLAIN, 1, (225, 225, 0), 2)

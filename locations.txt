@@ -1,0 +1,4 @@
+*---------------Screen Interogations-----------------*
+- Location of chrome - Point(x=690, y=1066)
+- Location of chrome account icon - Point(x=822, y=660)
+- Location of Youtube.com icon - Point(x=543, y=739)
